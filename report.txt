@@ -1,0 +1,70 @@
+=== REPORT ===
+Total HTML lines: 2401
+Script starts at HTML line: 691
+Script ends at HTML line: 2398
+Total JS lines: 1708
+
+=== SCRIPT TAGS ===
+  HTML line 11: <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.produ
+  HTML line 12: <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-d
+  HTML line 13: <script src="https://cdn.jsdelivr.net/npm/recharts@2.1.16/umd/Recharts.js"></scr
+  HTML line 691: <script>
+  HTML line 2398: </script>
+
+=== BRACE DEPTH FINAL: 2 (should be 0) ===
+
+=== BRACE ISSUES ===
+  None
+
+=== DEPTH ANOMALIES (change > 3 in one line) ===
+
+=== ENCODING ISSUES (replacement chars) ===
+  HTML line 761: earn_prot: '???? ?????', pay_rec: '????????? ???????????', zone_risk: '???? ??????', lang_pick: '???
+Total encoding issues: 1
+
+=== FIRST 20 LINES OF SCRIPT ===
+   691: 
+   692:         // Emergency Error Logger
+   693:         window.onerror = function(msg, url, line, col, error) {
+   694:             document.body.innerHTML = '<div style="background:#B12704;color:white;padding:20px;font-family:monospace;hei
+   695:                 '<h2>? GigShield Error</h2>' +
+   696:                 '<p><b>Message:</b> ' + msg + '</p>' +
+   697:                 '<p><b>Line:</b> ' + line + '</p>' +
+   698:                 '<p><b>File:</b> ' + url + '</p>' +
+   699:                 '</div>';
+   700:         };
+   701: 
+   702:         const { createElement: h, useState, useEffect, useRef, Fragment } = React;
+   703:         
+   704:         // Safety Destructuring
+   705:         const RE = window.Recharts || {};
+   706:         const { BarChart, Bar, LineChart, Line, AreaChart, Area, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Toolt
+   707: 
+   708:         /* ??? CONSTANTS & DATA ??? */
+   709:         const ZONES = {
+   710:             'Ambattur, Chennai': { city: 'Chennai', risk: 'high', rain: 68, temp: 32, aqi: 142, flood: true, workers: 34
+
+=== LAST 20 LINES OF SCRIPT ===
+  2379:             return h(Fragment, null, gs.confetti && h(Confetti), page);
+  2380:         }
+  2381: 
+  2382:         function initApp() {
+  2383:             const rootEl = document.getElementById('root');
+  2384:             if (!rootEl) return;
+  2385:             try {
+  2386:                 ReactDOM.createRoot(rootEl).render(h(Root));
+  2387:             } catch(e) {
+  2388:                 console.error("Render failed", e);
+  2389:                 window.onerror(e.message, "index.html", "Init");
+  2390:             }
+  2391:         }
+  2392: 
+  2393:         if (document.readyState === 'complete') {
+  2394:             initApp();
+  2395:         } else {
+  2396:             window.addEventListener('load', initApp);
+  2397:         }
+  2398:     
+
+=== PATTERN SCAN ===
+  None found

@@ -1,0 +1,90 @@
+Total lines: 2400
+
+Script open tags: 4
+  Line 11: <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.produ
+  Line 12: <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-d
+  Line 13: <script src="https://cdn.jsdelivr.net/npm/recharts@2.1.16/umd/Recharts.js">
+  Line 691: <script>
+
+Script close tags: 4
+  Line 11
+  Line 12
+  Line 13
+  Line 2398
+
+Inline script: HTML lines 691-2398 (1708 lines of JS)
+
+Brace check: ERRORS
+  Unmatched braces at end: net unclosed depth = 2
+
+Paren check: OK
+
+--- Scanning for common issues ---
+  No obvious common issues found
+
+Lines with replacement chars (encoding issues): 1
+  Line 761: earn_prot: 'ఆదాయ రక్షణ', pay_rec: 'అందుకున్న చెల్లింపులు', zone_risk: 'జోన్ రిస్క్', lang_pick: 'భాష
+
+--- First 30 lines of inline script ---
+  691: 
+  692:         // Emergency Error Logger
+  693:         window.onerror = function(msg, url, line, col, error) {
+  694:             document.body.innerHTML = '<div style="background:#B12704;color:white;padding:20px;font-family:monospace;hei
+  695:                 '<h2>❌ GigShield Error</h2>' +
+  696:                 '<p><b>Message:</b> ' + msg + '</p>' +
+  697:                 '<p><b>Line:</b> ' + line + '</p>' +
+  698:                 '<p><b>File:</b> ' + url + '</p>' +
+  699:                 '</div>';
+  700:         };
+  701: 
+  702:         const { createElement: h, useState, useEffect, useRef, Fragment } = React;
+  703:         
+  704:         // Safety Destructuring
+  705:         const RE = window.Recharts || {};
+  706:         const { BarChart, Bar, LineChart, Line, AreaChart, Area, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Toolt
+  707: 
+  708:         /* ─── CONSTANTS & DATA ─── */
+  709:         const ZONES = {
+  710:             'Ambattur, Chennai': { city: 'Chennai', risk: 'high', rain: 68, temp: 32, aqi: 142, flood: true, workers: 34
+  711:             'T Nagar, Chennai': { city: 'Chennai', risk: 'medium', rain: 22, temp: 33, aqi: 118, flood: false, workers: 
+  712:             'Velachery, Chennai': { city: 'Chennai', risk: 'medium', rain: 18, temp: 34, aqi: 125, flood: false, workers
+  713:             'Adyar, Chennai': { city: 'Chennai', risk: 'low', rain: 5, temp: 31, aqi: 98, flood: false, workers: 19, zF:
+  714:             'Andheri West, Mumbai': { city: 'Mumbai', risk: 'high', rain: 55, temp: 29, aqi: 165, flood: true, workers: 
+  715:             'Dharavi, Mumbai': { city: 'Mumbai', risk: 'critical', rain: 82, temp: 28, aqi: 180, flood: true, workers: 2
+  716:             'Bandra, Mumbai': { city: 'Mumbai', risk: 'medium', rain: 30, temp: 30, aqi: 145, flood: false, workers: 35,
+  717:             'Powai, Mumbai': { city: 'Mumbai', risk: 'low', rain: 8, temp: 31, aqi: 110, flood: false, workers: 18, zF: 
+  718:             'Dwarka, Delhi': { city: 'Delhi', risk: 'high', rain: 0, temp: 42, aqi: 320, flood: false, workers: 38, zF: 
+  719:             'Sector 15, Delhi': { city: 'Delhi', risk: 'critical', rain: 0, temp: 44, aqi: 420, flood: false, workers: 3
+  720:             'Connaught Place, Delhi': { city: 'Delhi', risk: 'medium', rain: 0, temp: 41, aqi: 280, flood: false, worker
+
+--- Last 30 lines of inline script ---
+  2369:             });
+  2370:             function setGs(s) { try { sessionStorage.setItem('gs_amz_v1', JSON.stringify(s)); } catch (e) { } setGsRaw(s
+  2371:             var [route, setRoute] = useState(gs.route || '/gigshield');
+  2372:             function navigate(r) { setRoute(r); setGs(Object.assign({}, gs, { route: r })); }
+  2373:             var page;
+  2374:             if (route === '/gigshield') page = h(Entry, { navigate, gs, setGs });
+  2375:             else if (route === '/register') page = h(Registration, { navigate, gs, setGs });
+  2376:             else if (route === '/worker') page = h(WorkerApp, { navigate, gs, setGs });
+  2377:             else if (route === '/admin') page = h(AdminApp, { navigate, gs, setGs });
+  2378:             else page = h(Entry, { navigate, gs, setGs });
+  2379:             return h(Fragment, null, gs.confetti && h(Confetti), page);
+  2380:         }
+  2381: 
+  2382:         function initApp() {
+  2383:             const rootEl = document.getElementById('root');
+  2384:             if (!rootEl) return;
+  2385:             try {
+  2386:                 ReactDOM.createRoot(rootEl).render(h(Root));
+  2387:             } catch(e) {
+  2388:                 console.error("Render failed", e);
+  2389:                 window.onerror(e.message, "index.html", "Init");
+  2390:             }
+  2391:         }
+  2392: 
+  2393:         if (document.readyState === 'complete') {
+  2394:             initApp();
+  2395:         } else {
+  2396:             window.addEventListener('load', initApp);
+  2397:         }
+  2398:     

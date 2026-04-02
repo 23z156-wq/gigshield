@@ -1,0 +1,131 @@
+  1390 d=0:                     h('div', { className: 'amz-card', style: { marginBottom: 10 } },
+  1391 d=0:                         h('div', { className: 'amz-card-header' }, 'Past 4 Weeks'),
+  1392 d=0:                         h('div', { style: { padding: '0 14px 10px' } },
+  1393 d=0:                             h('table', { style: { width: '100%', borderCollapse: 'collapse' } },
+  1394 d=0:                                 h('thead', null, h('tr', { style: { borderBottom: '2px solid #EAEDED' } },
+  1395 d=0:                                     ['Week', 'Premium', 'Active', 'Payout'].map(hd => h('th', { key: hd, style: { paddin
+  1396 d=0:                                 )),
+  1397 d=0:                                 h('tbody', null, hist.map(r =>
+  1398 d=0:                                     h('tr', { key: r.w, style: { borderBottom: '1px solid #f5f5f5' } },
+  1399 d=0:                                         h('td', { style: { padding: '9px 4px', fontSize: 12 } }, r.w),
+  1400 d=0:                                         h('td', { style: { padding: '9px 4px', fontSize: 12, fontWeight: 700 } }, '?' + 
+  1401 d=0:                                         h('td', { style: { padding: '9px 4px' } }, h(Badge, { label: r.a ? 'Yes' : 'No',
+  1402 d=0:                                         h('td', { style: { padding: '9px 4px', fontSize: 12, color: r.pay > 0 ? '#067D62
+  1403 d=0:                                     )
+  1404 d=0:                                 ))
+  1405 d=0:                             )
+  1406 d=0:                         )
+  1407 d=0:                     )
+  1408 d=0:                 ),
+  1409 d=0:                 h('div', { style: { position: 'fixed', bottom: 58, left: '50%', transform: 'translateX(-50%)', width: '1
+  1410 d=0:                     covered
+  1411 d=0:                         ? h('div', { style: { background: '#e7f5f0', border: '1px solid #b2dfdb', borderRadius: 4, paddi
+  1412 d=0:                         : h('button', { className: 'btn-orange', style: { fontSize: 14, padding: 13 }, onClick: activate
+  1413 d=0:                 )
+  1414 d=0:             );
+  1415 d=-1 [0->-1] **NEG**:         }
+  1416 d=-1 **NEG**: 
+  1417 d=0 [-1->0]:         function WPayouts({ worker, payouts, gs }) {
+  1418 d=0:             const [filter, setFilter] = useState('all');
+  1419 d=0:             const mine = payouts.filter(p => p.wId === worker.id);
+  1420 d=0:             const filtered = filter === 'all' ? mine : mine.filter(p => p.status === filter);
+  1421 d=0:             const totalRec = mine.filter(p => p.status === 'paid').reduce((s, p) => s + p.amt, 0);
+  1422 d=0:             const em = t => t.includes('Rain') ? '??' : t.includes('Heat') ? '??' : t.includes('AQI') ? '?' : t.includes
+  1423 d=0:             return h('div', { className: 'au' },
+  1424 d=0:                 h(AmzTopNav, {}),
+  1425 d=0:                 h('div', { style: { padding: 12 } },
+  1426 d=0:                     h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8, marginBottom: 12 } 
+  1427 d=0:                         [{ l: t('total_rec'), v: '?' + totalRec, c: '#067D62' }, { l: t('pending'), v: mine.filter(p => 
+  1428 d=0:                             h('div', { key: r.l, className: 'amz-card', style: { padding: '10px 8px', textAlign: 'center
+  1429 d=0:                                 h('div', { style: { fontSize: 16, fontWeight: 700, color: r.c } }, r.v),
+  1430 d=0:                                 h('div', { style: { fontSize: 10, color: '#565959', marginTop: 2 } }, r.l)
+  1431 d=0:                             )
+  1432 d=0:                         )
+  1433 d=0:                     ),
+  1434 d=0:                     filtered.map(p => h('div', { key: p.id, className: 'amz-card', style: { marginBottom: 10, padding: 1
+  1435 d=0:                         h('div', { style: { display: 'flex', justifyContent: 'space-between' } },
+  1436 d=0:                             h('div', { style: { display: 'flex', gap: 10 } },
+  1437 d=0:                                 h('div', { style: { fontSize: 20 } }, em(p.type)),
+  1438 d=0:                                 h('div', null, h('div', { style: { fontSize: 13, fontWeight: 600 } }, p.type), h('div', 
+  1439 d=0:                             ),
+  1440 d=0:                             h('div', { style: { textAlign: 'right', fontSize: 15, fontWeight: 700, color: p.status === '
+  1441 d=0:                         )
+  1442 d=0:                     ))
+  1443 d=0:                 )
+  1444 d=0:             );
+  1445 d=-1 [0->-1] **NEG**:         }
+  1446 d=-1 **NEG**: 
+  1447 d=0 [-1->0]:         function WMap({ worker, gs }) {
+  1448 d=0:             const [city, setCity] = useState('Chennai');
+  1449 d=0:             const zones = Object.entries(ZONES).filter(z => z[1].city === city).map(z => Object.assign({ zone: z[0] }, z
+  1450 d=0:             return h('div', { className: 'au' },
+  1451 d=0:                 h(AmzTopNav, {}),
+  1452 d=0:                 h('div', { style: { padding: 12, paddingBottom: 80 } },
+  1453 d=0:                     h('div', { className: 'amz-card', style: { padding: 12, marginBottom: 10, display: 'flex', justifyCo
+  1454 d=0:                         h('span', { style: { fontSize: 13, fontWeight: 700 } }, t('risk_map')),
+  1455 d=0:                         h('select', { value: city, onChange: e => setCity(e.target.value), className: 'amz-select', styl
+  1456 d=0:                             ['Chennai', 'Mumbai', 'Delhi', 'Bengaluru', 'Hyderabad'].map(c => h('option', { key: c, valu
+  1457 d=0:                         )
+  1458 d=0:                     ),
+  1459 d=0:                     h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 } },
+  1460 d=0:                         zones.map(z => h('div', { key: z.zone, className: 'amz-card', style: { padding: 12, border: `2px
+  1461 d=0:                             h('div', { style: { fontWeight: 700, fontSize: 12 } }, z.zone.split(',')[0]),
+  1462 d=0:                             h(RiskBadge, { risk: z.risk })
+  1463 d=0:                         ))
+  1464 d=0:                     )
+  1465 d=0:                 )
+  1466 d=0:             );
+  1467 d=-1 [0->-1] **NEG**:         }
+  1468 d=-1 **NEG**: 
+  1469 d=0 [-1->0]:         function WAlerts({ worker, covered, gs }) {
+  1470 d=0:             const alerts = [
+  1471 d=0:                 { id: 1, icon: '??', title: 'Heavy rain in Ambattur', body: covered ? 'Protected' : 'Unprotected' },
+  1472 d=0:                 { id: 2, icon: '?', title: 'Payout transferred', body: '?480 successfully sent' }
+  1473 d=0:             ];
+  1474 d=0:             return h('div', { className: 'au' },
+  1475 d=0:                 h(AmzTopNav, {}),
+  1476 d=0:                 h('div', { style: { padding: 12 } },
+  1477 d=0:                     h('div', { style: { fontWeight: 700, fontSize: 15, marginBottom: 10 } }, t('alerts')),
+  1478 d=0:                     alerts.map(a => h('div', { key: a.id, className: 'amz-card', style: { marginBottom: 8, padding: 14 }
+  1479 d=0:                         h('div', { style: { display: 'flex', gap: 10 } }, h('span', { style: { fontSize: 20 } }, a.icon)
+  1480 d=0:                     ))
+  1481 d=0:                 )
+  1482 d=0:             );
+  1483 d=-1 [0->-1] **NEG**:         }
+  1484 d=-1 **NEG**: 
+  1485 d=0 [-1->0]:         function WProfile({ worker, gs, setGs, navigate }) {
+  1486 d=0:             return h('div', { className: 'au' },
+  1487 d=0:                 h(AmzTopNav, {}),
+  1488 d=0:                 h('div', { style: { padding: 12 } },
+  1489 d=0:                     h('div', { style: { background: '#232F3E', borderRadius: 8, padding: 18, marginBottom: 10, display: 
+  1490 d=0:                         h('div', { style: { width: 44, height: 44, borderRadius: '50%', background: '#FF9900', display: 
+  1491 d=0:                         h('div', null, h('div', { style: { color: 'white', fontWeight: 700 } }, worker.name), h('div', {
+  1492 d=0:                     ),
+  1493 d=0:                     h('div', { className: 'amz-card', style: { padding: 18, marginBottom: 12 } },
+  1494 d=0:                         h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 } },
+  1495 d=0:                             )
+  1496 d=0:                         )
+  1497 d=0:                     ),
+  1498 d=0:                     h('button', { className: 'btn-secondary', onClick: () => { setGs(Object.assign({}, gs, { workerLogge
+  1499 d=0:                 )
+  1500 d=0:             );
+  1501 d=-1 [0->-1] **NEG**:         }
+  1502 d=-2 [-1->-2] **NEG**:         }
+  1503 d=-2 **NEG**: 
+  1504 d=-2 **NEG**:         /* ??? ADMIN APP ??? */
+  1505 d=-1 [-2->-1] **NEG**:         function AdminApp({ navigate, gs, setGs }) {
+  1506 d=-1 **NEG**:             const [tab, setTab] = useState('dashboard');
+  1507 d=-1 **NEG**:             const [triggers, setTriggers] = useState(TRIGGERS_BASE.map(t => ({ ...t })));
+  1508 d=-1 **NEG**:             const [payouts, setPayouts] = useState(PAYOUTS_BASE.map(p => ({ ...p })));
+  1509 d=-1 **NEG**:             const [fraudFlags, setFraudFlags] = useState(FRAUD_BASE.map(f => ({ ...f })));
+  1510 d=-1 **NEG**:             const [toast, setToast] = useState(null);
+  1511 d=-1 **NEG**:             const nav = [
+  1512 d=-1 **NEG**:                 { id: 'dashboard', icon: 'bar', l: 'Dashboard' },
+  1513 d=-1 **NEG**:                 { id: 'workers', icon: 'users', l: 'Workers' },
+  1514 d=-1 **NEG**:                 { id: 'claims', icon: 'credit', l: 'Claims' },
+  1515 d=-1 **NEG**:                 { id: 'analytics', icon: 'trend', l: 'Analytics' },
+  1516 d=-1 **NEG**:                 { id: 'triggers', icon: 'zap', l: 'Triggers' },
+  1517 d=-1 **NEG**:                 { id: 'fraud', icon: 'alert', l: 'Fraud Queue' },
+  1518 d=-1 **NEG**:             ];
+  1519 d=0 [-1->0]:             const pages = {
+  1520 d=0:                 dashboard: h(ADash, { triggers, payouts, setPayouts, setToast }),

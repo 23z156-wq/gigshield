@@ -1,0 +1,338 @@
+=== LANGUAGE / I18N / TRANSLATION REFERENCES ===
+  726: const I18N = {
+  727: en: {
+  731: earn_prot: 'Earnings Protected', pay_rec: 'Payouts Received', zone_risk: 'Zone Risk', lang_pick: 'Select Language', prof
+  732: risk_map: 'Real-time Risk Map', alerts: 'Alerts & Notifications', reg_title: 'Create Your Account', reg_step: 'Step {s} 
+  737: hi: {
+  741: earn_prot: '???? ????????', pay_rec: '?????? ???????', zone_risk: '??????? ?????', lang_pick: '???? ?????', prof_det: '?
+  742: risk_map: '????-???? ????? ????????', alerts: '????? ?? ???????', reg_title: '???? ???? ?????', reg_step: '??? {s} ?? 4'
+  747: ta: {
+  751: earn_prot: '???????? ?????????????', pay_rec: '????????? ????', zone_risk: '????? ??????', lang_pick: '???????? ????????
+  752: risk_map: '???????? ???? ???????', alerts: '????????????', reg_title: '?????? ?????? ????????????', reg_step: '??? {s}/4
+  757: te: {
+  761: earn_prot: '???? ?????', pay_rec: '????????? ???????????', zone_risk: '???? ??????', lang_pick: '????? ?????????        
+  799: lang_pick: "???? / Language",
+  802: te: {
+  835: lang_pick: "??? / Language",
+  838: kn: {
+  871: lang_pick: "???? / Language",
+  874: mr: {
+  907: lang_pick: "???? / Language",
+  912: function t(key, lang) {
+  913: const l = lang || 'en';
+  914: return (I18N[l] && I18N[l][key]) || (I18N['en'][key]) || key;
+  950: { id: 'p1', wId: 'w1', date: '14 Jan', type: 'Heavy Rain', gts: 0.91, gps: 94, plat: 87, wx: 96, amt: 480, status: 'paid
+  951: { id: 'p2', wId: 'w1', date: '7 Jan', type: 'Extreme Heat', gts: 0.78, gps: 88, plat: 72, wx: 91, amt: 320, status: 'pai
+  952: { id: 'p3', wId: 'w1', date: '28 Dec', type: 'Severe AQI', gts: 0.85, gps: 92, plat: 80, wx: 88, amt: 440, status: 'paid
+  953: { id: 'p4', wId: 'w2', date: '12 Jan', type: 'Heavy Rain', gts: 0.93, gps: 97, plat: 91, wx: 95, amt: 560, status: 'paid
+  954: { id: 'p5', wId: 'w2', date: '10 Jan', type: 'Flood', gts: 0.55, gps: 68, plat: 48, wx: 81, amt: 0, status: 'under_revie
+  955: { id: 'p6', wId: 'w3', date: '13 Jan', type: 'Strike', gts: 0.88, gps: 91, plat: 85, wx: 0, amt: 700, status: 'paid', es
+  956: { id: 'p7', wId: 'w5', date: '14 Jan', type: 'Heavy Rain', gts: 0.96, gps: 98, plat: 94, wx: 97, amt: 650, status: 'paid
+  957: { id: 'p8', wId: 'w7', date: '11 Jan', type: 'Severe AQI', gts: 0.82, gps: 85, plat: 79, wx: 90, amt: 500, status: 'paid
+  958: { id: 'p9', wId: 'w4', date: '9 Jan', type: 'Strike', gts: 0.42, gps: 45, plat: 40, wx: 0, amt: 0, status: 'rejected', e
+  959: { id: 'p10', wId: 'w6', date: '13 Jan', type: 'Heavy Rain', gts: 0.77, gps: 80, plat: 75, wx: 85, amt: 380, status: 'pai
+  969: { id: 'f1', name: 'Rahul Singh', plat: 'Zepto', zone: 'Dharavi, Mumbai', amt: 620, type: 'Heavy Rain', date: '14 Jan 3:1
+  970: { id: 'f2', name: 'Deepa Nair', plat: 'Zomato', zone: 'Indiranagar, Bengaluru', amt: 450, type: 'Strike', date: '9 Jan',
+  971: { id: 'f3', name: 'Lakshmi Devi', plat: 'Zepto', zone: 'Gachibowli, Hyderabad', amt: 380, type: 'Extreme Heat', date: '9
+  972: { id: 'f4', name: 'Sanjay Patel', plat: 'Blinkit', zone: 'Velachery, Chennai', amt: 290, type: 'Heavy Rain', date: '8 Ja
+  1018: const parts = d.split(' M');
+  1051: function Toast({ msg, sub, onClose }) {
+  1052: useEffect(() => { const t = setTimeout(onClose, 5000); return () => clearTimeout(t); }, []);
+  1098: const lang = gs.lang || 'en';
+  1103: setTimeout(function() { setWri(calcWRI(form)); setLoading(false); setStep(4); }, 1600);
+  1108: setTimeout(function() {
+  1110: setTimeout(function() { setGs(function(s) { return Object.assign({}, s, { confetti: false }); }); }, 3000);
+  1122: const steps = [t('p_info', lang), t('p_zone', lang), t('p_income', lang), t('p_plan', lang)];
+  1127: h('div', { style: { fontSize: 13, color: '#565959', marginBottom: 6 } }, t('reg_step', lang).replace('{s}', step) + ' ? 
+  1138: h('p', { style: { fontSize: 12, color: '#565959', marginBottom: 16 } }, t('hero_s', lang)),
+  1140: h('label', { className: 'amz-label' }, t('p_name', lang)),
+  1144: h('label', { className: 'amz-label' }, t('p_phone', lang)),
+  1148: h('label', { className: 'amz-label' }, t('p_aadhaar', lang)),
+  1152: h('label', { className: 'amz-label' }, t('p_vehicle', lang)),
+  1157: h('button', { className: 'btn-primary', onClick: function() { if (form.name && form.phone) setStep(2); } }, t('continue'
+  1200: h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 6 } },
+  1221: h('span', { style: { position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)', fontSize: 14, color: '#5
+  1222: h('input', { className: 'amz-input', type: 'number', value: form.avgEarnings, onChange: e => upd('avgEarnings', parseInt
+  1324: const lang = gs.lang || 'en';
+  1338: h('div', { style: { color: '#ccc', fontSize: 11, letterSpacing: '.02em' } }, t('hero_t', lang))
+  1341: h('div', { style: { background: 'linear-gradient(135deg,#232F3E,#131921)', borderRadius: 8, padding: '20px 18px', margin
+  1342: h('h1', { style: { fontSize: 22, fontWeight: 700, color: 'white', marginBottom: 8, lineHeight: 1.3 } }, t('hero_t', lang
+  1343: h('p', { style: { fontSize: 13, color: '#ccc', lineHeight: 1.6, marginBottom: 16 } }, t('hero_s', lang)),
+  1355: h('h2', { style: { fontSize: 16, fontWeight: 700, marginBottom: 14 } }, t('welcome', lang)),
+  1357: t('cont_demo', lang)
+  1364: h('button', { className: 'btn-secondary', onClick: function() { navigate('/register'); } }, t('create_acc', lang))
+  1366: h('button', { className: 'btn-secondary', onClick: function() { setShowAdmin(true); }, style: { width: '100%' } }, t('si
+  1393: function activate() { setGs({ ...gs, covered: true, confetti: true }); setTimeout(() => setGs(s => ({ ...s, confetti: fa
+  1411: toast && h(Toast, { msg: '+ ?' + toast.amt + ' transferred', sub: toast.type + ' ? UPI ? ' + toast.upi, onClose: () => s
+  1429: const lang = gs.lang || 'en';
+  1438: h('div', { style: { color: covered ? '#FF9900' : '#FEBD69', fontSize: 11, marginTop: 1 } }, covered ? t('auto_pay', lang
+  1443: h('div', { style: { background: covered ? 'linear-gradient(135deg,#232F3E,#131921)' : 'linear-gradient(135deg,#B12704,#9
+  1449: h('div', { style: { color: 'white', fontSize: 17, fontWeight: 700, marginBottom: 4 } }, covered ? t('prot_week', lang) :
+  1450: covered ? h('div', { style: { color: '#FF9900', fontSize: 12 } }, '?' + worker.prem + ' paid ? ' + t('valid_until', lang
+  1452: t('act_now', lang) + ' ? ?' + worker.prem + '/week'
+  1456: [{ l: t('earn_prot', lang), v: '?' + total, c: '#067D62' }, { l: t('pay_rec', lang), v: mine.length, c: '#007185' }, { l
+  1466: h('div', { style: { fontSize: 14, fontWeight: 700 } }, t('rec_act', lang)),
+  1467: h('span', { className: 'amz-link' }, t('view_all', lang))
+  1489: const lang = gs.lang || 'en';
+  1499: h('div', { className: 'amz-card-header' }, t('policy_title', lang)),
+  1503: h('div', { style: { fontSize: 11, color: '#565959', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.04em',
+  1505: h('div', { style: { fontSize: 12, color: '#565959' } }, covered ? '? ' + t('valid_until', lang) : t('not_prot', lang))
+  1510: [[t('factors', lang), '?1.0', null], ['Zone', '?1.3', null], ['Weather', '?1.4', null]].map(function(r) {
+  1520: h('div', { className: 'amz-card-header' }, t('wri_title', lang)),
+  1589: h('div', { style: { position: 'fixed', bottom: 58, left: '50%', transform: 'translateX(-50%)', width: '100%', maxWidth: 
+  1599: const lang = gs.lang || 'en';
+  1608: [{ l: t('total_rec', lang), v: '?' + totalRec, c: '#067D62' }, { l: t('pending', lang), v: mine.filter(p => p.status ===
+  1630: const lang = gs.lang || 'en';
+  1636: h('span', { style: { fontSize: 13, fontWeight: 700 } }, t('risk_map', lang)),
+  1643: h('div', { style: { fontWeight: 700, fontSize: 12 } }, z.zone.split(',')[0]),
+  1652: const lang = gs.lang || 'en';
+  1660: h('div', { style: { fontWeight: 700, fontSize: 15, marginBottom: 10 } }, t('alerts', lang)),
+  1669: const lang = gs.lang || 'en';
+  1670: function changeLang(l) { setGs(Object.assign({}, gs, { lang: l })); }
+  1679: h('div', { style: { fontSize: 13, fontWeight: 700, color: '#565959', marginBottom: 12, textTransform: 'uppercase' } }, t
+  1682: h('button', { key: l[0], onClick: () => changeLang(l[0]), style: { background: lang === l[0] ? '#fffbf2' : 'white', bord
+  1686: h('button', { className: 'btn-secondary', onClick: () => { setGs(Object.assign({}, gs, { workerLoggedIn: false })); navi
+  1716: toast && h(Toast, { msg: '+ ?' + toast.amt + ' transferred', sub: toast.type + ' ? UPI ? 1m 47s', onClose: () => setToas
+  1775: setSimState('running'); setSimLog([]); setSimResult(null);
+  1777: { t: 350, msg: '[INFO] Fetching live data: OpenWeatherMap API...', cl: 'log-info' },
+  1788: logs.forEach(l => setTimeout(() => setSimLog(p => [...p, { msg: l.msg, cl: l.cl }]), l.t));
+  1789: setTimeout(() => {
+  1791: setSimResult({ affected: 34, cleared: 9, review: 2, fraud: 1, total: tr.pay * 9 });
+  1792: const np = { id: 'p_sim_' + Date.now(), wId: 'w1', date: 'Now', type: tr.name, gts: .91, gps: 94, plat: 88, wx: 97, amt:
+  1794: setToast(np);
+  1799: h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 12, marginBottom: 16 } },
+  1829: key: tr.id, onClick: () => { setSimTr(tr); setSimState('idle'); setSimLog([]); setSimResult(null); }, style: {
+  1864: simResult && h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 8, marginTop: 10 } },
+  1879: h(BarChart, { data: WEEKLY_D, barGap: 3 },
+  1938: h('div', { style: { position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)' } }, h(Ic, { name: 'search
+  1951: h('div', { style: { width: 30, height: 30, borderRadius: '50%', background: '#fffbf2', border: '1px solid #f0c14b', disp
+  1958: h('td', { style: { padding: '11px 14px', fontSize: 12, color: '#565959' } }, w.zone.split(',')[0]),
+  1974: h('div', { style: { fontSize: 11, color: '#888', marginBottom: 10 } }, selected.platform + ' ? ' + selected.zone.split('
+  2009: if (action === 'approve') { const p = payouts.find(x => x.id === id); if (p) setToast({ ...p, amt: Math.round(p.est * .8
+  2093: h(LineChart, { data: MONTHLY_D },
+  2107: h(BarChart, { data: claimsData, layout: 'vertical' },
+  2121: h(AreaChart, { data: MONTHLY_D },
+  2134: h(Pie, { data: PLAT_PIE, cx: '50%', cy: '50%', innerRadius: 35, outerRadius: 65, dataKey: 'val', nameKey: 'name' },
+  2145: h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 1, background: '#EAEDED' } },
+  2166: setSimState('running'); setSimLog([]); setSimResult(null);
+  2178: logs.forEach(l => setTimeout(() => setSimLog(p => [...p, { msg: l.msg, cl: l.cl }]), l.t));
+  2179: setTimeout(() => {
+  2181: setSimResult({ affected: 12, cleared: 9, review: 2, fraud: 1, total: tr.pay * 9 });
+  2182: const np = { id: 'p_tr_' + Date.now(), wId: 'w1', date: 'Now', type: tr.name, gts: .92, gps: 95, plat: 89, wx: 98, amt: 
+  2183: setPayouts(prev => [np, ...prev]); setToast(np);
+  2207: h('input', { type: 'number', value: tr.thresh, onChange: e => updTr(tr.id, 'thresh', parseFloat(e.target.value)), style:
+  2218: h('input', { type: 'number', value: tr.pct, onChange: e => updTr(tr.id, 'pct', parseInt(e.target.value)), style: { width
+  2225: h('button', { onClick: () => { setSimModal(tr); setSimState('idle'); setSimLog([]); setSimResult(null); }, style: { back
+  2236: h('div', { style: { fontSize: 16, fontWeight: 700 } }, simModal.icon + ' Simulate: ' + simModal.name),
+  2250: h('input', { className: 'amz-input', type: 'number', value: simVal, onChange: e => setSimVal(parseFloat(e.target.value))
+  2265: h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 8, marginTop: 12 } },
+  2309: h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 12, marginBottom: 14 } },
+  2338: f.why === 'Platform Mismatch' ? '? Platform logs contradict claim timing' : null,
+  2352: ) : h(Badge, { label: f.status.charAt(0).toUpperCase() + f.status.slice(1), color: f.status === 'approved' ? '#067D62' :
+  2365: function Root() {
+  2367: try { var s = sessionStorage.getItem('gs_amz_v1'); return s ? JSON.parse(s) : { route: '/gigshield', lang: 'en', covered
+  2368: catch (e) { return { route: '/gigshield', lang: 'en', covered: false, confetti: false }; }
+  2372: function navigate(r) { setRoute(r); setGs(Object.assign({}, gs, { route: r })); }
+  2386: ReactDOM.createRoot(rootEl).render(h(Root));
+
+=== LINES 709-800 (around ZONES and encoding issue) ===
+  709:         const ZONES = {
+  710:             'Ambattur, Chennai': { city: 'Chennai', risk: 'high', rain: 68, temp: 32, aqi: 142, flood: true, workers: 34, zF: 1.3 },
+  711:             'T Nagar, Chennai': { city: 'Chennai', risk: 'medium', rain: 22, temp: 33, aqi: 118, flood: false, workers: 28, zF: 1.1 },
+  712:             'Velachery, Chennai': { city: 'Chennai', risk: 'medium', rain: 18, temp: 34, aqi: 125, flood: false, workers: 22, zF: 1.0 },
+  713:             'Adyar, Chennai': { city: 'Chennai', risk: 'low', rain: 5, temp: 31, aqi: 98, flood: false, workers: 19, zF: 0.85 },
+  714:             'Andheri West, Mumbai': { city: 'Mumbai', risk: 'high', rain: 55, temp: 29, aqi: 165, flood: true, workers: 41, zF: 1.25 },
+  715:             'Dharavi, Mumbai': { city: 'Mumbai', risk: 'critical', rain: 82, temp: 28, aqi: 180, flood: true, workers: 29, zF: 1.5 },
+  716:             'Bandra, Mumbai': { city: 'Mumbai', risk: 'medium', rain: 30, temp: 30, aqi: 145, flood: false, workers: 35, zF: 1.1 },
+  717:             'Powai, Mumbai': { city: 'Mumbai', risk: 'low', rain: 8, temp: 31, aqi: 110, flood: false, workers: 18, zF: 0.9 },
+  718:             'Dwarka, Delhi': { city: 'Delhi', risk: 'high', rain: 0, temp: 42, aqi: 320, flood: false, workers: 38, zF: 1.35 },
+  719:             'Sector 15, Delhi': { city: 'Delhi', risk: 'critical', rain: 0, temp: 44, aqi: 420, flood: false, workers: 31, zF: 1.5 },
+  720:             'Connaught Place, Delhi': { city: 'Delhi', risk: 'medium', rain: 0, temp: 41, aqi: 280, flood: false, workers: 25, zF: 1.1 },
+  721:             'Koramangala, Bengaluru': { city: 'Bengaluru', risk: 'medium', rain: 15, temp: 28, aqi: 95, flood: false, workers: 45, zF: 0.95 },
+  722:             'Indiranagar, Bengaluru': { city: 'Bengaluru', risk: 'low', rain: 8, temp: 27, aqi: 88, flood: false, workers: 38, zF: 0.85 },
+  723:             'Gachibowli, Hyderabad': { city: 'Hyderabad', risk: 'medium', rain: 0, temp: 38, aqi: 155, flood: false, workers: 22, zF: 1.05 },
+  724:         };
+  725: 
+  726:         const I18N = {
+  727:             en: {
+  728:                 hero_t: 'Protect Your Daily Earnings', hero_s: 'The first parametric insurance for delivery partners in India.', welcome: 'Welcome to 
+  729:                 total_rec: 'Total Paid', last_pay: 'Last Payout', pending: 'Pending', rec_act: 'Recent Activity', view_all: 'View All', triggers: 'Ins
+  730:                 prot_week: 'You are protected this week', not_prot: 'Not protected this week', act_now: 'Activate Now', valid_until: 'Valid until Sund
+  731:                 earn_prot: 'Earnings Protected', pay_rec: 'Payouts Received', zone_risk: 'Zone Risk', lang_pick: 'Select Language', prof_det: 'Account
+  732:                 risk_map: 'Real-time Risk Map', alerts: 'Alerts & Notifications', reg_title: 'Create Your Account', reg_step: 'Step {s} of 4', continu
+  733:                 p_info: 'Personal Info', p_zone: 'Platform & Zone', p_income: 'Income & UPI', p_plan: 'Your Plan', p_name: 'Full Name', p_phone: 'Mobi
+  734:                 p_plat: 'Primary Platform', p_z: 'Operating Zone', p_avg: 'Average Daily Earnings', p_upi: 'UPI ID (for payouts)', p_est: 'Estimated W
+  735:                 policy_title: 'My Insurance Policy', weekly_prem: 'Weekly Premium', factors: 'Premium Factors', past_weeks: 'Past 4 Weeks', wri_title:
+  736:             },
+  737:             hi: {
+  738:                 hero_t: '???? ????? ???? ???????? ????', hero_s: '???? ??? ??????? ????????? ?? ??? ???? ??????????? ???? ?????', welcome: '???????? ?
+  739:                 total_rec: '??? ???????', last_pay: '????? ??????', pending: '?????', rec_act: '??? ?? ???????', view_all: '??? ?????', triggers: '???
+  740:                 prot_week: '?? ?? ?????? ???????? ???', not_prot: '?? ?????? ???????? ???? ??', act_now: '??? ?????? ????', valid_until: '?????? ??? ?
+  741:                 earn_prot: '???? ????????', pay_rec: '?????? ???????', zone_risk: '??????? ?????', lang_pick: '???? ?????', prof_det: '???? ?????', si
+  742:                 risk_map: '????-???? ????? ????????', alerts: '????? ?? ???????', reg_title: '???? ???? ?????', reg_step: '??? {s} ?? 4', continue: '?
+  743:                 p_info: '????????? ???????', p_zone: '??????????? ?? ???????', p_income: '?? ?? ??????', p_plan: '???? ?????', p_name: '???? ???', p_p
+  744:                 p_plat: '????? ???????????', p_z: '????? ???????', p_avg: '??? ????? ????', p_upi: '?????? ???? (?????? ?? ???)', p_est: '???????? ???
+  745:                 policy_title: '???? ???? ??????', weekly_prem: '????????? ????????', factors: '???????? ????', past_weeks: '????? 4 ??????', wri_title
+  746:             },
+  747:             ta: {
+  748:                 hero_t: '?????? ?????? ???????????? ?????????????', hero_s: '??????????? ??????? ????????????????? ????? ???????????? ????????.', welc
+  749:                 total_rec: '????? ????????', last_pay: '????? ???????', pending: '?????????? ??????', rec_act: '????????? ?????????', view_all: '?????
+  750:                 prot_week: '???? ????? ??????? ???????????????????????', not_prot: '???? ????? ?????????? ?????', act_now: '??????? ????????????', val
+  751:                 earn_prot: '???????? ?????????????', pay_rec: '????????? ????', zone_risk: '????? ??????', lang_pick: '???????? ?????????????????', pr
+  752:                 risk_map: '???????? ???? ???????', alerts: '????????????', reg_title: '?????? ?????? ????????????', reg_step: '??? {s}/4', continue: '
+  753:                 p_info: '????????? ?????', p_zone: '???? ??????? ???????', p_income: '???????? ??????? UPI', p_plan: '?????? ???????', p_name: '???? ?
+  754:                 p_plat: '??????? ????', p_z: '??????????? ???????', p_avg: '?????? ?????? ????????', p_upi: 'UPI ??? (???????????)', p_est: '?????????
+  755:                 policy_title: '???? ?????????? ??????', weekly_prem: '????????? ?????????', factors: '????????? ????????', past_weeks: '????? 4 ??????
+  756:             },
+  757:             te: {
+  758:                 hero_t: '?? ???????? ????????? ?????????????', hero_s: '?????????? ??????? ?????????? ???? ????? ???????????? ????.', welcome: 'GigShi
+  759:                 total_rec: '?????? ?????????', last_pay: '????? ?????????', pending: '??????????? ????', rec_act: '?????? ??????????', view_all: '????
+  760:                 prot_week: '? ???? ???? ??????????????', not_prot: '? ???? ????? ????', act_now: '??????? ?????????? ??????', valid_until: '??????? ??
+  761:                 earn_prot: '???? ?????', pay_rec: '????????? ???????????', zone_risk: '???? ??????', lang_pick: '????? ?????????            }
+  762:         };
+  763: one: '?????????? ??? ???????', p_income: '??????? ??? ??????', p_plan: '????? ?????', p_name: '????? ???', p_phone: '?????? ????', p_aadhaar: '???? (?
+  764:                 p_plat: '????? ??????????', p_z: '????? ???????', p_avg: '?????? ??????? ????', p_upi: '?????? ???? (??????????)', p_est: '????????? ?
+  765:                 policy_title: '???? ???? ??????', weekly_prem: '????????? ????????', factors: '???????? ???', past_weeks: '????? 4 ?????', wri_title: 
+  766:             }
+  767:         };
+  768:                 hero_t: "??????????? ??????? ?????????????? ?????? ??????????",
+  769:                 hero_s: "???, ???? ??????? ?????? ?????????? ?????? ???? ????????? ????????? ???? ? GigShield ??????? ???? ?????????????. ????????? ??
+  770:                 cont_demo: "?????? ??????? ???????? (????)",
+  771:                 create_acc: "????? ?????? ????????????",
+  772:                 admin_acc: "??????? ??????",
+  773:                 signin_adm: "??????????? ????????????",
+  774:                 act_now: "??????? ????????????",
+  775:                 prot_week: "???? ????? ?????????????????",
+  776:                 not_prot: "???????????????????",
+  777:                 earn_prot: "???????? ?????????????????",
+  778:                 pay_rec: "????????? ?????????????",
+  779:                 zone_risk: "????? ??????",
+  780:                 rec_act: "????????? ?????????",
+  781:                 view_all: "??????????? ????",
+  782:                 triggers: "5 ?????? ????????????",
+  783:                 my_policy: "???? ?????????? ??????",
+  784:                 weekly_prem: "????????? ?????????",
+  785:                 valid_until: "?????? ???? 11:59 ??? ????????",
+  786:                 wri_score: "????????? ???? ???????? (WRI)",
+  787:                 cov_for: "??????? ??????? ???????? ???????????????",
+  788:                 auto_pay: "????????? ???????",
+  789:                 total_rec: "??????? ???????????",
+  790:                 last_pay: "????? ???????",
+  791:                 pending: "????????????? ??????",
+  792:                 gps_match: "??????? ?????????",
+  793:                 plat_drop: "?? ????????",
+  794:                 wx_signal: "?????? ???????",
+  795:                 risk_map: "???? ???????",
+  796:                 forecast_48: "48-?????? ???? ???????????",
+  797:                 notifs: "????????????? ??????? ????????????",
+  798:                 prof_det: "?????? ?????????",
+  799:                 lang_pick: "???? / Language",
+
+=== LINES 2350-2398 (end of script) ===
+  2350:                             h('button', { onClick: () => handle(f.id, 'rejected'), style: { flex: 1, background: '#fff0f0', color: '#B12704', border: 
+  2351:                             h('button', { onClick: () => handle(f.id, 'approved'), style: { flex: 1, background: '#e7f5f0', color: '#067D62', border: 
+  2352:                         ) : h(Badge, { label: f.status.charAt(0).toUpperCase() + f.status.slice(1), color: f.status === 'approved' ? '#067D62' : '#B12
+  2353:                     )
+  2354:                 ),
+  2355:                 h('div', { style: { background: '#fffbf2', border: '1px solid #f0c14b', borderRadius: 6, padding: 16, marginTop: 8 } },
+  2356:                     h('div', { style: { fontWeight: 700, color: '#8a6116', marginBottom: 6, fontSize: 13 } }, '? ML Fraud Insights'),
+  2357:                     h('div', { style: { fontSize: 13, color: '#6b4a08', lineHeight: 1.7 } }, 'Top pattern this week: GPS spoofing in Dharavi zone (4 a
+  2358:                 )
+  2359:             );
+  2360:         }
+  2361: 
+  2362:         /* ??? ROOT ??? */
+  2363: 
+  2364:         /* ??? ROOT ??? */
+  2365:         function Root() {
+  2366:             var [gs, setGsRaw] = useState(function() {
+  2367:                 try { var s = sessionStorage.getItem('gs_amz_v1'); return s ? JSON.parse(s) : { route: '/gigshield', lang: 'en', covered: false, confe
+  2368:                 catch (e) { return { route: '/gigshield', lang: 'en', covered: false, confetti: false }; }
+  2369:             });
+  2370:             function setGs(s) { try { sessionStorage.setItem('gs_amz_v1', JSON.stringify(s)); } catch (e) { } setGsRaw(s); }
+  2371:             var [route, setRoute] = useState(gs.route || '/gigshield');
+  2372:             function navigate(r) { setRoute(r); setGs(Object.assign({}, gs, { route: r })); }
+  2373:             var page;
+  2374:             if (route === '/gigshield') page = h(Entry, { navigate, gs, setGs });
+  2375:             else if (route === '/register') page = h(Registration, { navigate, gs, setGs });
+  2376:             else if (route === '/worker') page = h(WorkerApp, { navigate, gs, setGs });
+  2377:             else if (route === '/admin') page = h(AdminApp, { navigate, gs, setGs });
+  2378:             else page = h(Entry, { navigate, gs, setGs });
+  2379:             return h(Fragment, null, gs.confetti && h(Confetti), page);
+  2380:         }
+  2381: 
+  2382:         function initApp() {
+  2383:             const rootEl = document.getElementById('root');
+  2384:             if (!rootEl) return;
+  2385:             try {
+  2386:                 ReactDOM.createRoot(rootEl).render(h(Root));
+  2387:             } catch(e) {
+  2388:                 console.error("Render failed", e);
+  2389:                 window.onerror(e.message, "index.html", "Init");
+  2390:             }
+  2391:         }
+  2392: 
+  2393:         if (document.readyState === 'complete') {
+  2394:             initApp();
+  2395:         } else {
+  2396:             window.addEventListener('load', initApp);
+  2397:         }
+  2398:     
+
+=== LARGE OBJECT PATTERNS (const X = {) ===
+  709: const ZONES = {
+  726: const I18N = {
+  916: const PLATS = {
+  985: const RC = { low: '#067D62', medium: '#8a6116', high: '#c45500', critical: '#B12704' };
+  986: const SC = { paid: { c: '#067D62', bg: '#e7f5f0', l: 'Paid' }, under_review: { c: '#8a6116', bg: '#fff8e7', l: 'Under Re
+  991: const paths = {
+  1027: const cls = { low: 'risk-low', medium: 'risk-medium', high: 'risk-high', critical: 'risk-critical' };
+  1194: const riskColor = { low: '#067D62', medium: '#8a6116', high: '#c45500', critical: '#B12704' };
+  1402: const pages = {
+  1707: const pages = {
+  1792: const np = { id: 'p_sim_' + Date.now(), wId: 'w1', date: 'Now', type: tr.name, gts: .91, gps: 94, plat: 88, wx: 97, amt:
+  2182: const np = { id: 'p_tr_' + Date.now(), wId: 'w1', date: 'Now', type: tr.name, gts: .92, gps: 95, plat: 89, wx: 98, amt: 
+  2305: const fColor = { 'GPS Spoofing': '#B12704', 'Platform Mismatch': '#8a6116', 'New Account Spike': '#6b21a8', 'Duplicate C
+
+=== FUNCTION DEFINITIONS ===
+  912: function t(key, lang) {
+  924: function calcWRI(form) {
+  989: function Ic({ name, size, color }) {
+  1023: function Badge({ label, color, bg, border, size }) {
+  1026: function RiskBadge({ risk }) {
+  1030: function Toggle({ on, onClick }) {
+  1035: function Spinner() {
+  1038: function Confetti() {
+  1051: function Toast({ msg, sub, onClose }) {
+  1066: function AmzTopNav({ title, back, onBack, rightEl }) {
+  1092: function Registration({ navigate, gs, setGs }) {
+  1099: function upd(k, v) { setForm(function(f) { return Object.assign({}, f, { [k]: v }); }); }
+  1101: function goStep4() {
+  1105: function finish() {
+  1319: function Entry({ navigate, gs, setGs }) {
+  1325: function doAdmin() {
+  1387: function WorkerApp({ navigate, gs, setGs }) {
+  1393: function activate() { setGs({ ...gs, covered: true, confetti: true }); setTimeout(() => setGs(s => ({ ...s, confetti: fa
+  1428: function WHome({ worker, covered, activate, gs, setGs }) {
+  1487: function WPolicy({ worker, covered, activate, gs }) {
+  1597: function WPayouts({ worker, payouts, gs }) {
+  1628: function WMap({ worker, gs }) {
+  1651: function WAlerts({ worker, covered, gs }) {
+  1668: function WProfile({ worker, gs, setGs, navigate }) {
+  1670: function changeLang(l) { setGs(Object.assign({}, gs, { lang: l })); }
+  1693: function AdminApp({ navigate, gs, setGs }) {
+  1758: function ADash({ triggers, payouts, setPayouts, setToast }) {
+  1774: function runSim(tr) {
+  1931: function AWorkers({ payouts }) {
+  1999: function AClaims({ payouts, setPayouts, setToast }) {
+  2007: function doAction(id, action) {
+  2086: function AAnalytics() {
+  2157: function ATriggers({ triggers, setTriggers, payouts, setPayouts, setToast }) {
+  2164: function updTr(id, k, v) { setTriggers(prev => prev.map(t => t.id === id ? { ...t, [k]: v } : t)); }
+  2165: function runSim(tr) {
+  2302: function AFraud({ fraudFlags, setFraudFlags }) {
+  2307: function handle(id, action) { setFraudFlags(fraudFlags.map(f => f.id === id ? { ...f, status: action } : f)); }
+  2365: function Root() {
+  2370: function setGs(s) { try { sessionStorage.setItem('gs_amz_v1', JSON.stringify(s)); } catch (e) { } setGsRaw(s); }
+  2372: function navigate(r) { setRoute(r); setGs(Object.assign({}, gs, { route: r })); }
+  2382: function initApp() {
